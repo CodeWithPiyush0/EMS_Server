@@ -10,14 +10,20 @@ import dashboardRouter from './routes/dashboard.js'
 import connectToDatabase from './db/db.js'
 import path from 'path'
 
+import {userRegister} from '.userSeed.js'
+
 
 connectToDatabase()
 const app = express()
+app.use(cors({
+    origin: "https://ems-frontend-opal.vercel.app",
+    credentials: true
+}))
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/uploads', express.static(path.join(path.resolve(), 'public/uploads')));
-app.use(cors())
 app.use('/api/auth', auth)
 app.use('/api/department', departmentRouter)
 app.use('/api/employee', employeeRouter)
