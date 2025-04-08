@@ -10,7 +10,7 @@ import dashboardRouter from './routes/dashboard.js'
 import connectToDatabase from './db/db.js'
 import path from 'path'
 
-import {userRegister} from '.userSeed.js'
+//import {userRegister} from './userSeed.js'
 
 
 connectToDatabase()
